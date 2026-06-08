@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>霧島カップルホテル案内❤️</title>
+<style>
+:root {
+  --pink: #e8507a;
+  --pink2: #c93d64;
+  --pink-light: #fdf0f4;
+  --pink-pale: #fce8ef;
+  --gold: #c9a84c;
+  --txt: #333;
+  --muted: #888;
+  --line: #f0d8e0;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; color: var(--txt); background: #fff; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; object-fit: cover; }
+
+/* ── ヘッダー ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: #fff;
+  border-bottom: 2px solid var(--pink-pale);
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(232,80,122,.08);
+}
+.logo { font-size: 17px; font-weight: 800; color: var(--pink); letter-spacing: .02em; }
+.logo span { font-size: 13px; display: block; font-weight: 400; color: var(--muted); }
+.hamburger { font-size: 22px; cursor: pointer; color: var(--pink); background: none; border: none; }
+
+/* ── ナビ（ハンバーガー開閉） ── */
+nav {
+  display: none; flex-direction: column;
+  background: #fff; border-bottom: 2px solid var(--pink-pale);
+  padding: 8px 0;
+}
+nav.open { display: flex; }
+nav a {
+  padding: 12px 20px; font-size: 15px; font-weight: 600;
+  color: var(--txt); border-bottom: 1px solid var(--pink-pale);
+}
+nav a:last-child { border-bottom: none; }
+
+/* ── ラッパー ── */
+.wrap { max-width: 1100px; margin: auto; padding: 0 16px 60px; }
+
+/* ── セクション共通 ── */
+.section { padding: 40px 0 0; }
+.section-title {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 20px; font-weight: 800; color: var(--txt);
+  margin-bottom: 20px;
+}
+.section-title .icon { font-size: 22px; }
+.section-title::after {
+  content: ''; flex: 1; height: 2px;
+  background: linear-gradient(90deg, var(--pink-pale), transparent);
+  margin-left: 8px;
+}
+
+/* ── TOP3 ── */
+.top3 { display: flex; flex-direction: column; gap: 20px; }
+.top3-card {
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(232,80,122,.10);
+  position: relative;
+}
+.top3-rank {
+  position: absolute; top: 12px; left: 12px;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 900; color: #fff;
+  z-index: 2;
+}
+.rank-1 { background: linear-gradient(135deg,#c9a84c,#f0d060); }
+.rank-2 { background: linear-gradient(135deg,#888,#bbb); }
+.rank-3 { background: linear-gradient(135deg,#a0654a,#c8866a); }
+.top3-img { height: 200px; }
+.top3-body { padding: 16px; background: #fff; }
+.area-badge {
+  display: inline-block;
+  background: var(--pink-pale); color: var(--pink2);
+  font-size: 12px; font-weight: 700;
+  border-radius: 999px; padding: 3px 10px; margin-bottom: 8px;
+}
+.top3-name { font-size: 22px; font-weight: 800; color: var(--pink); margin-bottom: 4px; }
+.top3-name small { font-size: 14px; color: var(--muted); font-weight: 400; }
+.features { margin: 10px 0; }
+.features li {
+  list-style: none; font-size: 14px; color: #555;
+  padding: 2px 0; display: flex; align-items: center; gap: 6px;
+}
+.features li::before { content: '✔'; color: var(--pink); font-size: 12px; }
+.price-row {
+  display: flex; gap: 12px; align-items: center;
+  margin: 14px 0 16px; flex-wrap: wrap;
+}
+.price-item { font-size: 14px; color: var(--muted); }
+.price-item strong { font-size: 18px; color: var(--pink); font-weight: 800; }
+.btn-detail {
+  display: block; text-align: center;
+  background: linear-gradient(90deg, var(--pink), #f07090);
+  color: #fff; font-weight: 700; font-size: 15px;
+  padding: 13px; border-radius: 999px;
+  letter-spacing: .05em;
+}
+.btn-detail:hover { background: linear-gradient(90deg, var(--pink2), var(--pink)); }
+
+/* ── ホテル一覧グリッド ── */
+.hotel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.hotel-card {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 14px rgba(232,80,122,.07);
+  background: #fff;
+}
+.hotel-img { height: 110px; }
+.hotel-body { padding: 10px 11px 12px; }
+.hotel-area { font-size: 11px; color: var(--pink); font-weight: 700; margin-bottom: 3px; display: flex; align-items: center; gap: 3px; }
+.hotel-name { font-size: 14px; font-weight: 800; margin-bottom: 7px; line-height: 1.3; }
+.hotel-price { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.hotel-price strong { color: var(--pink); font-size: 14px; }
+.btn-sm {
+  display: block; text-align: center; margin-top: 10px;
+  border: 1.5px solid var(--pink); color: var(--pink);
+  font-size: 12px; font-weight: 700; padding: 7px;
+  border-radius: 999px;
+}
+.btn-sm:hover { background: var(--pink); color: #fff; }
+
+/* ── インフォバナー ── */
+.info-banners { display: flex; flex-direction: column; gap: 14px; margin-top: 40px; }
+.info-banner {
+  border-radius: 16px; padding: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.info-banner.beginner { background: linear-gradient(135deg,#fff0f5,#ffe8f0); border: 1px solid #f5c0d0; }
+.info-banner.listing  { background: linear-gradient(135deg,#fff8ec,#ffeedd); border: 1px solid #f5dab0; }
+.info-banner-icon { font-size: 38px; flex-shrink: 0; }
+.info-banner-text h3 { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+.info-banner-text p  { font-size: 13px; color: #666; line-height: 1.6; }
+.btn-banner {
+  display: inline-block; margin-top: 10px;
+  background: var(--pink); color: #fff;
+  font-size: 13px; font-weight: 700; padding: 8px 18px;
+  border-radius: 999px;
+}
+
+/* ── お問い合わせ ── */
+.contact-section { padding: 40px 0 0; }
+.contact-items { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.contact-item {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px; background: #fff;
+  box-shadow: 0 2px 8px rgba(232,80,122,.05);
+}
+.contact-item:hover { border-color: var(--pink); }
+.contact-left { display: flex; align-items: center; gap: 14px; }
+.contact-icon { font-size: 26px; }
+.contact-label { font-size: 12px; color: var(--muted); }
+.contact-value { font-size: 16px; font-weight: 800; color: var(--txt); }
+.contact-value.tel { font-size: 22px; color: var(--pink); }
+.contact-value.line { color: #06c755; }
+.contact-arrow { color: var(--pink); font-size: 18px; }
+.contact-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* ── フッター ── */
+footer {
+  background: linear-gradient(135deg, #e8507a, #c93d64);
+  color: #fff; padding: 30px 16px;
+  margin-top: 50px;
+}
+.footer-inner { max-width: 1100px; margin: auto; }
+.footer-logo { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+.footer-desc { font-size: 13px; opacity: .85; margin-bottom: 20px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; margin-bottom: 20px; }
+.footer-nav a { opacity: .85; }
+.footer-nav a:hover { opacity: 1; }
+.footer-copy { font-size: 12px; opacity: .65; }
+
+/* ── トップへ戻るボタン ── */
+.totop {
+  position: fixed; bottom: 20px; right: 16px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--pink); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; box-shadow: 0 4px 14px rgba(232,80,122,.4);
+  cursor: pointer; border: none;
+  transition: opacity .2s;
+}
+
+/* ── PC レイアウト ── */
+@media (min-width: 780px) {
+  .logo { font-size: 20px; }
+  nav { display: flex; flex-direction: row; background: transparent; border: none; padding: 0; position: static; }
+  nav a { padding: 0 14px; border: none; font-size: 14px; }
+  .hamburger { display: none; }
+  .top3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .top3-img { height: 180px; }
+  .hotel-grid { grid-template-columns: repeat(4, 1fr); }
+  .hotel-img { height: 130px; }
+  .info-banners { flex-direction: row; }
+  .info-banner { flex: 1; }
+  .contact-items { max-width: 600px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="logo">
+    霧島カップルホテル案内❤️
+    <span>霧島市のカップル向けホテル・レジャーホテル情報サイト</span>
+  </div>
+  <button class="hamburger" id="menuBtn" aria-label="メニュー">☰</button>
+</header>
+<nav id="nav">
+  <a href="#top3">注目ホテル</a>
+  <a href="#list">ホテル一覧</a>
+  <a href="#beginner">初めての方へ</a>
+  <a href="#listing">掲載希望</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- 注目ホテルTOP3 -->
+  <section class="section" id="top3">
+    <h2 class="section-title"><span class="icon">👑</span>注目ホテル TOP3</h2>
+    <div class="top3">
+
+      <!-- 1位 -->
+      <div class="top3-card">
+        <div class="top3-rank rank-1">1</div>
+        <img class="top3-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=200&fit=crop" alt="Hotel jouir">
+        <div class="top3-body">
+          <div class="area-badge">隼人エリア</div>
+          <div class="top3-name">Hotel jouir <small>（ジュイール）</small></div>
+          <ul class="features">
+            <li>全室デザイナーズ空間</li>
+            <li>記念日・特別な日におすすめ</li>
+            <li>露天風呂付き客室あり</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-item">休憩 <strong>4,500円〜</strong></div>
+            <div class="price-item">宿泊 <strong>8,500円〜</strong></div>
+          </div>
+          <a href="#" class="btn-detail">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <!-- 2位 -->
+      <div class="top3-card">
+        <div class="top3-rank rank-2">2</div>
+        <img class="top3-img" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=200&fit=crop" alt="ホテル21">
+        <div class="top3-body">
+          <div class="area-badge">溝辺エリア</div>
+          <div class="top3-name">ホテル21</div>
+          <ul class="features">
+            <li>鹿児島空港から車で約2分</li>
+            <li>宿泊・休憩どちらも利用しやすい</li>
+            <li>ビジネス利用にも人気</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-item">休憩 <strong>4,200円〜</strong></div>
+            <div class="price-item">宿泊 <strong>7,500円〜</strong></div>
+          </div>
+          <a href="#" class="btn-detail">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <!-- 3位 -->
+      <div class="top3-card">
+        <div class="top3-rank rank-3">3</div>
+        <img class="top3-img" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=200&fit=crop" alt="クイーン">
+        <div class="top3-body">
+          <div class="area-badge">国分エリア</div>
+          <div class="top3-name">クイーン</div>
+          <ul class="features">
+            <li>広い客室と豊富なアメニティ</li>
+            <li>ゆったり過ごしたいカップル向け</li>
+            <li>24時間利用対応</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-item">休憩 <strong>4,000円〜</strong></div>
+            <div class="price-item">宿泊 <strong>7,000円〜</strong></div>
+          </div>
+          <a href="#" class="btn-detail">詳細を見る ›</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ホテル一覧 -->
+  <section class="section" id="list">
+    <h2 class="section-title"><span class="icon">🏨</span>ホテル一覧</h2>
+    <div class="hotel-grid">
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=300&h=110&fit=crop" alt="ホテル シンシア">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 隼人エリア</div>
+          <div class="hotel-name">サンタモニカ</div>
+          <div class="hotel-price">休憩 <strong>4,300円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,800円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=300&h=110&fit=crop" alt="ホテル エルモア">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 国分エリア</div>
+          <div class="hotel-name">ホテル 淀</div>
+          <div class="hotel-price">休憩 <strong>4,500円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>8,000円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=300&h=110&fit=crop" alt="ホテル プレジール">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 溝辺エリア</div>
+          <div class="hotel-name">セルシオ</div>
+          <div class="hotel-price">休憩 <strong>4,100円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,200円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1629079447777-1e605162dc8d?w=300&h=110&fit=crop" alt="ホテル バル">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 国分エリア</div>
+          <div class="hotel-name">シルエット</div>
+          <div class="hotel-price">休憩 <strong>4,100円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,200円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=300&h=110&fit=crop" alt="ホテル アクア">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 隼人エリア</div>
+          <div class="hotel-name">よい子クラブ</div>
+          <div class="hotel-price">休憩 <strong>4,200円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,000円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=300&h=110&fit=crop" alt="ホテル サンセット">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 溝辺エリア</div>
+          <div class="hotel-name">ホテル王朝</div>
+          <div class="hotel-price">休憩 <strong>4,200円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>6,800円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=300&h=110&fit=crop" alt="ホテル ロイヤル">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 国分エリア</div>
+          <div class="hotel-name">ホテルシンシア</div>
+          <div class="hotel-price">休憩 <strong>4,300円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,800円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img class="hotel-img" src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=300&h=110&fit=crop" alt="ホテルパリス">
+        <div class="hotel-body">
+          <div class="hotel-area">📍 国分エリア</div>
+          <div class="hotel-name">ホテルパリス</div>
+          <div class="hotel-price">休憩 <strong>4,200円〜</strong></div>
+          <div class="hotel-price">宿泊 <strong>7,200円〜</strong></div>
+          <a href="#" class="btn-sm">詳細を見る ›</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 初めての方へ・掲載希望 -->
+  <div class="info-banners">
+    <div class="info-banner beginner" id="beginner">
+      <div class="info-banner-icon">❤️</div>
+      <div class="info-banner-text">
+        <h3>初めての方へ</h3>
+        <p>休憩や宿泊の違いや利用方法など、初めての方にわかりやすくご案内しています。</p>
+        <a href="#" class="btn-banner">詳しく見る ›</a>
+      </div>
+    </div>
+    <div class="info-banner listing" id="listing">
+      <div class="info-banner-icon">📷</div>
+      <div class="info-banner-text">
+        <h3>掲載希望ホテル様へ</h3>
+        <p>霧島市内のホテル様の掲載を募集しています。写真撮影・ページ制作も対応可能です。</p>
+        <a href="#" class="btn-banner">詳しく見る ›</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- お問い合わせ -->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title"><span class="icon">📩</span>お問い合わせ</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">ご質問・ご相談はお気軽にお問い合わせください。</p>
+    <div class="contact-items">
+
+      <a href="tel:0995000000" class="contact-item">
+        <div class="contact-left">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">お電話でのお問い合わせ</div>
+            <div class="contact-value tel">0995-00-0000</div>
+            <div class="contact-note">10:00〜24:00（年中無休）</div>
+          </div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+
+      <a href="#" class="contact-item">
+        <div class="contact-left">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div class="contact-label">LINEでのお問い合わせ</div>
+            <div class="contact-value line">友だち追加する ›</div>
+          </div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+
+      <a href="#" class="contact-item">
+        <div class="contact-left">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">メールでのお問い合わせ</div>
+            <div class="contact-value" style="color:var(--pink);">お問い合わせフォームへ ›</div>
+          </div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- フッター -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">霧島カップルホテル案内❤️</div>
+    <div class="footer-desc">霧島市のカップル向けホテル・レジャーホテルの情報をまとめた専門サイトです。</div>
+    <div class="footer-nav">
+      <a href="#top3">ホーム</a>
+      <a href="#list">ホテル一覧</a>
+      <a href="#beginner">初めての方へ</a>
+      <a href="#listing">掲載希望ホテル様へ</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 2024 霧島カップルホテル案内 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- トップへ戻る -->
+<button class="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップへ">↑</button>
+
+<script>
+// ハンバーガーメニュー
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+menuBtn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+  menuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰';
+});
+// ナビリンクをタップしたら閉じる
+nav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.textContent = '☰';
+  });
+});
+</script>
+</body>
+</html>
