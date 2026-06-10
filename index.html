@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>霧島カップルホテル案内❤️</title>
+<title>霧島ホテルガイド | 霧島カップルホテル案内</title>
 <style>
 :root {
   --pink: #e8507a;
@@ -201,6 +201,30 @@ footer {
   transition: opacity .2s;
 }
 
+/* ── ブログ最新記事 ── */
+.blog-list { display: flex; flex-direction: column; gap: 14px; }
+.blog-list-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 12px 14px; background: #fff;
+  box-shadow: 0 2px 8px rgba(232,80,122,.05);
+  transition: box-shadow .2s, transform .2s;
+}
+.blog-list-item:hover { box-shadow: 0 6px 20px rgba(232,80,122,.13); transform: translateY(-1px); }
+.blog-list-thumb { width: 80px; height: 70px; border-radius: 10px; flex-shrink: 0; object-fit: cover; }
+.blog-list-body { flex: 1; min-width: 0; }
+.blog-list-cat { display: inline-block; background: var(--pink-pale); color: var(--pink2); font-size: 11px; font-weight: 700; border-radius: 999px; padding: 2px 9px; margin-bottom: 4px; }
+.blog-list-title { font-size: 14px; font-weight: 800; line-height: 1.45; color: var(--txt); margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.blog-list-title:hover { color: var(--pink); }
+.blog-list-date { font-size: 11px; color: var(--muted); }
+.blog-more {
+  display: block; text-align: center; margin-top: 18px;
+  border: 1.5px solid var(--pink); color: var(--pink);
+  font-size: 14px; font-weight: 700; padding: 11px;
+  border-radius: 999px;
+}
+.blog-more:hover { background: var(--pink); color: #fff; }
+
 /* ── PC レイアウト ── */
 @media (min-width: 780px) {
   .logo { font-size: 20px; }
@@ -222,7 +246,7 @@ footer {
 <!-- ヘッダー -->
 <header>
   <div class="logo">
-    霧島カップルホテル案内❤️
+    霧島ホテルガイド
     <span>霧島市のカップル向けホテル・レジャーホテル情報サイト</span>
   </div>
   <button class="hamburger" id="menuBtn" aria-label="メニュー">☰</button>
@@ -230,6 +254,7 @@ footer {
 <nav id="nav">
   <a href="#top3">注目ホテル</a>
   <a href="#list">ホテル一覧</a>
+  <a href="blog.html">ブログ</a>
   <a href="#contact">お問い合わせ</a>
 </nav>
 
@@ -400,6 +425,60 @@ footer {
   </section>
 
 
+  <!-- ブログ最新記事 -->
+  <section class="section" id="blog">
+    <h2 class="section-title"><span class="icon">✏️</span>最新ブログ記事</h2>
+    <div class="blog-list">
+
+      <a href="blog-001.html" class="blog-list-item">
+        <img class="blog-list-thumb" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=160&h=140&fit=crop" alt="記念日ホテル">
+        <div class="blog-list-body">
+          <span class="blog-list-cat">デート・記念日</span>
+          <div class="blog-list-title">霧島でカップルステイ♡記念日に使いたいホテル3選</div>
+          <div class="blog-list-date">📅 2026年6月8日</div>
+        </div>
+      </a>
+
+      <a href="blog-002.html" class="blog-list-item">
+        <img class="blog-list-thumb" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=160&h=140&fit=crop" alt="使い方ガイド">
+        <div class="blog-list-body">
+          <span class="blog-list-cat">初心者ガイド</span>
+          <div class="blog-list-title">初めてでも安心！レジャーホテルの賢い使い方ガイド</div>
+          <div class="blog-list-date">📅 2026年6月5日</div>
+        </div>
+      </a>
+
+      <a href="blog-003.html" class="blog-list-item">
+        <img class="blog-list-thumb" src="https://images.unsplash.com/photo-1609602644879-dc24e09df90d?w=160&h=140&fit=crop" alt="霧島温泉">
+        <div class="blog-list-body">
+          <span class="blog-list-cat">デートスポット</span>
+          <div class="blog-list-title">霧島温泉でデート♡カップルで楽しめるスポット5選</div>
+          <div class="blog-list-date">📅 2026年6月1日</div>
+        </div>
+      </a>
+
+      <a href="blog-004.html" class="blog-list-item">
+        <img class="blog-list-thumb" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=160&h=140&fit=crop" alt="ホテル選び">
+        <div class="blog-list-body">
+          <span class="blog-list-cat">ホテル選びのコツ</span>
+          <div class="blog-list-title">プロが教える！ホテル選びで後悔しない5つのポイント</div>
+          <div class="blog-list-date">📅 2026年5月28日</div>
+        </div>
+      </a>
+
+      <a href="blog-005.html" class="blog-list-item">
+        <img class="blog-list-thumb" src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=160&h=140&fit=crop" alt="FAQ">
+        <div class="blog-list-body">
+          <span class="blog-list-cat">FAQ</span>
+          <div class="blog-list-title">よくある質問Q&A！レジャーホテル初めてのカップルへ</div>
+          <div class="blog-list-date">📅 2026年5月20日</div>
+        </div>
+      </a>
+
+    </div>
+    <a href="blog.html" class="blog-more">ブログ記事をもっと見る ›</a>
+  </section>
+
   <!-- お問い合わせ -->
   <section class="contact-section" id="contact">
     <h2 class="section-title"><span class="icon">📩</span>お問い合わせ</h2>
@@ -425,11 +504,12 @@ footer {
 <!-- フッター -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">霧島カップルホテル案内❤️</div>
+    <div class="footer-logo">霧島ホテルガイド</div>
     <div class="footer-desc">霧島市のカップル向けホテル・レジャーホテルの情報をまとめた専門サイトです。</div>
     <div class="footer-nav">
       <a href="#top3">ホーム</a>
       <a href="#list">ホテル一覧</a>
+      <a href="blog.html">ブログ</a>
       <a href="#contact">お問い合わせ</a>
     </div>
     <div class="footer-copy">© 2026 霧島カップルホテル案内 All Rights Reserved.</div>
