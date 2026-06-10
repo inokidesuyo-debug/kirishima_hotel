@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel jouir（ジュイール）| 霧島カップルホテル案内</title>
+<style>
+:root { --pink: #e8507a; --pink2: #c93d64; --pink-light: #fdf0f4; --pink-pale: #fce8ef; --txt: #333; --muted: #888; --line: #f0d8e0; --radius: 14px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; color: var(--txt); background: #fff; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; object-fit: cover; }
+header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid var(--pink-pale); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(232,80,122,.08); }
+.logo { font-size: 17px; font-weight: 800; color: var(--pink); letter-spacing: .02em; }
+.logo span { font-size: 13px; display: block; font-weight: 400; color: var(--muted); }
+.hamburger { font-size: 22px; cursor: pointer; color: var(--pink); background: none; border: none; }
+nav { display: none; flex-direction: column; background: #fff; border-bottom: 2px solid var(--pink-pale); padding: 8px 0; }
+nav.open { display: flex; }
+nav a { padding: 12px 20px; font-size: 15px; font-weight: 600; color: var(--txt); border-bottom: 1px solid var(--pink-pale); }
+nav a:last-child { border-bottom: none; }
+.wrap { max-width: 800px; margin: auto; padding: 0 16px 60px; }
+.hero { position: relative; height: 260px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,.65)); padding: 20px 16px; color: #fff; }
+.hero-area { font-size: 12px; font-weight: 700; background: var(--pink); display: inline-block; padding: 3px 10px; border-radius: 999px; margin-bottom: 6px; }
+.hero-name { font-size: 26px; font-weight: 900; }
+.hero-name small { font-size: 15px; font-weight: 400; opacity: .85; margin-left: 6px; }
+.breadcrumb { font-size: 12px; color: var(--muted); padding: 12px 0 4px; }
+.breadcrumb a { color: var(--pink); }
+.hotel-desc { font-size: 14px; color: #555; line-height: 1.8; margin-top: 12px; }
+.detail-section { margin-top: 28px; }
+.detail-title { font-size: 17px; font-weight: 800; color: var(--txt); padding-bottom: 8px; border-bottom: 2px solid var(--pink-pale); margin-bottom: 14px; }
+.features { list-style: none; }
+.features li { font-size: 14px; color: #555; padding: 7px 0; display: flex; align-items: flex-start; gap: 8px; border-bottom: 1px solid var(--pink-pale); }
+.features li:last-child { border-bottom: none; }
+.features li::before { content: '✔'; color: var(--pink); font-size: 12px; flex-shrink: 0; margin-top: 3px; }
+.price-table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); overflow: hidden; }
+.price-table tr { border-bottom: 1px solid var(--line); }
+.price-table tr:last-child { border-bottom: none; }
+.price-table th { padding: 12px 14px; text-align: left; font-size: 14px; color: var(--muted); font-weight: 600; background: var(--pink-light); width: 55%; }
+.price-table td { padding: 12px 14px; font-weight: 800; color: var(--pink); font-size: 16px; }
+.amenity-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.amenity-tag { background: var(--pink-pale); color: var(--pink2); font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+.access-box { background: #f9f9f9; border-radius: var(--radius); padding: 16px; font-size: 14px; line-height: 2.1; }
+.cta-box { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 2px solid var(--pink-pale); }
+.btn-tel { display: block; text-align: center; background: linear-gradient(90deg, var(--pink), #f07090); color: #fff; font-weight: 700; font-size: 16px; padding: 15px; border-radius: 999px; }
+.btn-line { display: block; text-align: center; background: #06c755; color: #fff; font-weight: 700; font-size: 16px; padding: 15px; border-radius: 999px; }
+.btn-back { display: inline-flex; align-items: center; gap: 4px; color: var(--pink); font-size: 13px; font-weight: 700; }
+footer { background: linear-gradient(135deg, #e8507a, #c93d64); color: #fff; padding: 30px 16px; margin-top: 50px; }
+.footer-inner { max-width: 800px; margin: auto; }
+.footer-logo { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+.footer-desc { font-size: 13px; opacity: .85; margin-bottom: 20px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; margin-bottom: 20px; }
+.footer-nav a { opacity: .85; }
+.footer-copy { font-size: 12px; opacity: .65; }
+.totop { position: fixed; bottom: 20px; right: 16px; width: 44px; height: 44px; border-radius: 50%; background: var(--pink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 4px 14px rgba(232,80,122,.4); cursor: pointer; border: none; }
+@media (min-width: 780px) {
+  .logo { font-size: 20px; }
+  nav { display: flex; flex-direction: row; background: transparent; border: none; padding: 0; }
+  nav a { padding: 0 14px; border: none; font-size: 14px; }
+  .hamburger { display: none; }
+  .hero { height: 380px; }
+  .hero-name { font-size: 36px; }
+  .cta-box { flex-direction: row; }
+  .btn-tel, .btn-line { flex: 1; }
+  .gallery-slider img { flex: 0 0 calc(25% - 8px); height: 180px; }
+}
+.gallery-wrap { position: relative; margin-top: 4px; }
+.gallery-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; gap: 10px; -webkit-overflow-scrolling: touch; }
+.gallery-slider::-webkit-scrollbar { display: none; }
+.gallery-slider img { flex: 0 0 calc(50% - 5px); height: 160px; border-radius: 10px; scroll-snap-align: start; }
+.gal-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.45); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 22px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; }
+.gal-prev { left: 8px; }
+.gal-next { right: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">霧島カップルホテル案内❤️<span>霧島市のカップル向けホテル・レジャーホテル情報サイト</span></a>
+  <button class="hamburger" id="menuBtn" aria-label="メニュー">☰</button>
+</header>
+<nav id="nav">
+  <a href="index.html#top3">注目ホテル</a>
+  <a href="index.html#list">ホテル一覧</a>
+  <a href="index.html#beginner">初めての方へ</a>
+  <a href="index.html#listing">掲載希望</a>
+  <a href="index.html#contact">お問い合わせ</a>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&h=400&fit=crop" alt="Hotel jouir">
+  <div class="hero-overlay">
+    <div class="hero-area">📍 隼人エリア</div>
+    <h1 class="hero-name">Hotel jouir <small>（ジュイール）</small></h1>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="breadcrumb"><a href="index.html">ホーム</a> › <a href="index.html#top3">注目ホテル</a> › Hotel jouir</div>
+
+  <p class="hotel-desc">霧島エリアでもっとも洗練されたデザイナーズホテル。全室コンセプト仕様で、記念日やプロポーズにも最適な特別な空間を提供しています。露天風呂付きの客室もあり、カップルの大切な時間をより豊かに演出します。</p>
+
+  <div class="detail-section">
+    <h2 class="detail-title">📷 フォトギャラリー</h2>
+    <div class="gallery-wrap">
+      <button class="gal-btn gal-prev" aria-label="前へ">‹</button>
+      <div class="gallery-slider">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop" alt="客室">
+        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600&h=400&fit=crop" alt="ベッドルーム">
+        <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=600&h=400&fit=crop" alt="バスルーム">
+        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&h=400&fit=crop" alt="エントランス">
+      </div>
+      <button class="gal-btn gal-next" aria-label="次へ">›</button>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <h2 class="detail-title">✨ 特徴・こだわり</h2>
+    <ul class="features">
+      <li>全室デザイナーズ空間・コンセプトルーム</li>
+      <li>露天風呂付き客室あり</li>
+      <li>記念日・プロポーズプラン対応</li>
+      <li>完全個室の立体駐車場（無料）</li>
+      <li>ルームサービス対応（要予約）</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2 class="detail-title">💴 料金</h2>
+    <table class="price-table">
+      <tr><th>休憩（2時間）</th><td>4,500円〜</td></tr>
+      <tr><th>休憩（3時間）</th><td>5,800円〜</td></tr>
+      <tr><th>宿泊（IN22:00〜OUT10:00）</th><td>8,500円〜</td></tr>
+      <tr><th>延長（1時間ごと）</th><td>1,200円〜</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">※料金は客室タイプにより異なります。詳しくはお電話でご確認ください。</p>
+  </div>
+
+  <div class="detail-section">
+    <h2 class="detail-title">🛁 アメニティ</h2>
+    <div class="amenity-grid">
+      <span class="amenity-tag">タオル</span><span class="amenity-tag">バスローブ</span><span class="amenity-tag">シャンプー</span>
+      <span class="amenity-tag">コンディショナー</span><span class="amenity-tag">ボディソープ</span><span class="amenity-tag">歯ブラシ</span>
+      <span class="amenity-tag">カミソリ</span><span class="amenity-tag">ドライヤー</span><span class="amenity-tag">冷蔵庫</span>
+      <span class="amenity-tag">大型TV</span><span class="amenity-tag">Wi-Fi無料</span><span class="amenity-tag">アメニティBOX</span>
+      <span class="amenity-tag">コンドーム</span>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <h2 class="detail-title">🗺️ アクセス</h2>
+    <div class="access-box">
+      <strong>住所：</strong>鹿児島県霧島市隼人町内山田XX-XX<br>
+      <strong>最寄り：</strong>JR隼人駅から車で約5分<br>
+      <strong>駐車場：</strong>完備（無料）・立体駐車場あり<br>
+      <strong>営業時間：</strong>24時間（フロント10:00〜翌2:00）
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <a href="tel:0995000000" class="btn-tel">📞 電話で問い合わせる</a>
+    <a href="#" class="btn-line">💬 LINEで問い合わせる</a>
+  </div>
+  <div style="text-align:center;margin-top:24px;">
+    <a href="index.html" class="btn-back">‹ ホテル一覧へ戻る</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">霧島カップルホテル案内❤️</div>
+    <div class="footer-desc">霧島市のカップル向けホテル・レジャーホテルの情報をまとめた専門サイトです。</div>
+    <div class="footer-nav">
+      <a href="index.html">ホーム</a><a href="index.html#list">ホテル一覧</a>
+      <a href="index.html#beginner">初めての方へ</a><a href="index.html#listing">掲載希望ホテル様へ</a>
+      <a href="index.html#contact">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 2026 霧島カップルホテル案内 All Rights Reserved.</div>
+  </div>
+</footer>
+<button class="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップへ">↑</button>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+menuBtn.addEventListener('click', () => { nav.classList.toggle('open'); menuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰'; });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menuBtn.textContent = '☰'; }));
+document.querySelectorAll('.gallery-wrap').forEach(wrap => {
+  const slider = wrap.querySelector('.gallery-slider');
+  wrap.querySelector('.gal-prev').addEventListener('click', () => slider.scrollBy({ left: -slider.offsetWidth / 2, behavior: 'smooth' }));
+  wrap.querySelector('.gal-next').addEventListener('click', () => slider.scrollBy({ left: slider.offsetWidth / 2, behavior: 'smooth' }));
+});
+</script>
+</body>
+</html>
